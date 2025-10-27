@@ -10,12 +10,12 @@ const Hero = () => {
       </div>
 
       {/* Gradient and vignette overlays */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black" />
-      <div className="pointer-events-none absolute inset-0" style={{ boxShadow: 'inset 0 0 200px rgba(0,0,0,0.6)' }} />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/70 via-emerald-900/10 to-black" />
+      <div className="pointer-events-none absolute inset-0" style={{ boxShadow: 'inset 0 0 220px rgba(0,0,0,0.65)' }} />
 
       <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-center justify-center px-6 text-center">
         <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur">
-          <Shield className="h-4 w-4 text-purple-300" />
+          <Shield className="h-4 w-4 text-[#39FF14]" />
           <span className="text-xs text-white/80">AI + Blockchain Powered Learning</span>
         </div>
 
@@ -27,12 +27,12 @@ const Hero = () => {
         </p>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          <a href="#features" className="inline-flex items-center gap-2 rounded-xl bg-purple-600 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-purple-600/30 transition hover:brightness-110">
+          <a href="#features" className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-black shadow-[0_10px_30px_rgba(57,255,20,0.35)] transition hover:brightness-110" style={{ backgroundColor: '#39FF14' }}>
             <Rocket className="h-4 w-4" />
             Explore OrbitX
           </a>
-          <a href="#cta" className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white/90 backdrop-blur transition hover:bg-white/10">
-            <Brain className="h-4 w-4" />
+          <a href="#cta" className="inline-flex items-center gap-2 rounded-xl border border-[#39FF14]/30 bg-white/5 px-5 py-3 text-sm font-semibold text-white/90 backdrop-blur transition hover:bg-[#39FF14]/10">
+            <Brain className="h-4 w-4 text-[#39FF14]" />
             Talk to our AI
           </a>
         </div>

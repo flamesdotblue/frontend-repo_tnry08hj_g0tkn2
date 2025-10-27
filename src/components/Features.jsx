@@ -3,22 +3,22 @@ import { BadgeCheck, Brain, Shield, Building2 } from 'lucide-react';
 
 const features = [
   {
-    icon: <BadgeCheck className="h-6 w-6 text-purple-400" />,
+    icon: <BadgeCheck className="h-6 w-6 text-[#39FF14]" />,
     title: 'Blockchain Certificates',
     desc: 'Issue tamper-proof credentials anchored on-chain with verifiable authenticity and instant validation.'
   },
   {
-    icon: <Brain className="h-6 w-6 text-purple-400" />,
+    icon: <Brain className="h-6 w-6 text-[#39FF14]" />,
     title: 'AI Learning Copilot',
     desc: 'Personalized guidance, smart quizzes, and contextual coaching that adapts to each learner.'
   },
   {
-    icon: <Building2 className="h-6 w-6 text-purple-400" />,
+    icon: <Building2 className="h-6 w-6 text-[#39FF14]" />,
     title: 'Multi-Company Workspaces',
     desc: 'Spin up secure, branded portals for each organization with granular roles and permissions.'
   },
   {
-    icon: <Shield className="h-6 w-6 text-purple-400" />,
+    icon: <Shield className="h-6 w-6 text-[#39FF14]" />,
     title: 'Enterprise-Grade Security',
     desc: 'SSO-ready, audit trails, and encryption by default—built for scale and compliance.'
   }
@@ -34,8 +34,8 @@ const Features = () => {
 
       <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {features.map((f, idx) => (
-          <div key={idx} className="group rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-transparent p-6 transition hover:border-purple-400/40">
-            <div className="mb-4 inline-flex rounded-xl bg-purple-500/10 p-3 ring-1 ring-inset ring-purple-400/20">{f.icon}</div>
+          <div key={idx} className="group rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-transparent p-6 transition hover:border-[#39FF14]/50">
+            <div className="mb-4 inline-flex rounded-xl bg-[#39FF14]/10 p-3 ring-1 ring-inset ring-[#39FF14]/20">{f.icon}</div>
             <h3 className="text-lg font-semibold">{f.title}</h3>
             <p className="mt-2 text-sm text-white/70">{f.desc}</p>
           </div>
