@@ -2,8 +2,8 @@ import React from 'react';
 import Spline from '@splinetool/react-spline';
 import { Shield, Rocket, Brain } from 'lucide-react';
 
-// Configurable URL with fallback to the original Spline scene requested
-const HERO_SPLINE_URL = import.meta.env.VITE_SPLINE_SCENE_URL || 'https://prod.spline.design/VyGeZv58yuk8j7Yy/scene.splinecode';
+// Configurable URL with fallback to the new dark-themed Spline scene
+const HERO_SPLINE_URL = import.meta.env.VITE_SPLINE_SCENE_URL || 'https://prod.spline.design/Y7DK6OtMHusdC345/scene.splinecode';
 
 const Hero = () => {
   return (
@@ -13,9 +13,10 @@ const Hero = () => {
         <Spline scene={HERO_SPLINE_URL} style={{ width: '100%', height: '100%' }} />
       </div>
 
-      {/* Non-blocking soft vignette only (no particle overlay) */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
+      {/* Non-blocking vignette and subtle purple tint for depth (does not block interactions) */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/90" />
       <div className="pointer-events-none absolute inset-0" style={{ boxShadow: 'inset 0 0 220px rgba(0,0,0,0.65)' }} />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_40%_at_50%_10%,rgba(168,85,247,0.08),transparent)]" />
 
       {/* Content */}
       <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-center justify-center px-6 text-center">
