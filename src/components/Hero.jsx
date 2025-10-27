@@ -2,8 +2,8 @@ import React from 'react';
 import Spline from '@splinetool/react-spline';
 import { Shield, Rocket, Brain } from 'lucide-react';
 
-// Use configurable URL with fallback to the new provided Spline scene
-const HERO_SPLINE_URL = import.meta.env.VITE_SPLINE_SCENE_URL || 'https://prod.spline.design/JIgK0GSrdC6xbkgp/scene.splinecode';
+// Configurable URL with fallback to the original Spline scene requested
+const HERO_SPLINE_URL = import.meta.env.VITE_SPLINE_SCENE_URL || 'https://prod.spline.design/VyGeZv58yuk8j7Yy/scene.splinecode';
 
 const Hero = () => {
   return (
