@@ -2,14 +2,12 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
-import TokenEconomy from './components/TokenEconomy';
 import CTA from './components/CTA';
-import Cursor from './components/Cursor';
 
 const App = () => {
   return (
-    <div className="relative min-h-screen w-full bg-black font-inter text-white cursor-none">
-      {/* Static neon background (no parallax) */}
+    <div className="relative min-h-screen w-full bg-black font-inter text-white">
+      {/* Static neon background grid + subtle glows */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -26,12 +24,8 @@ const App = () => {
 
       <Navbar />
       <Hero />
-      <Features />
-      <section id="token"><TokenEconomy /></section>
-      <CTA />
-
-      {/* Custom cursor (dot + ring) */}
-      <Cursor />
+      <section id="features"><Features /></section>
+      <section id="cta"><CTA /></section>
     </div>
   );
 };

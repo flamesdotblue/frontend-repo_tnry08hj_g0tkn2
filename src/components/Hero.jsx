@@ -2,7 +2,8 @@ import React from 'react';
 import Spline from '@splinetool/react-spline';
 import { Shield, Rocket, Brain } from 'lucide-react';
 
-const HERO_SPLINE_URL = import.meta.env.VITE_SPLINE_SCENE_URL || 'https://prod.spline.design/GAomjSvthYZG1LLN/scene.splinecode';
+// Use configurable URL with fallback to the new provided Spline scene
+const HERO_SPLINE_URL = import.meta.env.VITE_SPLINE_SCENE_URL || 'https://prod.spline.design/JIgK0GSrdC6xbkgp/scene.splinecode';
 
 const Hero = () => {
   return (
@@ -31,7 +32,7 @@ const Hero = () => {
         </p>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          <a href="#features" className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-black shadow-[0_10px_30px_rgba(57,255,20,0.35)] transition hover:brightness-110" style={{ backgroundColor: '#39FF14' }}>
+          <a href="#features" className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text:black shadow-[0_10px_30px_rgba(57,255,20,0.35)] transition hover:brightness-110" style={{ backgroundColor: '#39FF14', color: '#000' }}>
             <Rocket className="h-4 w-4" />
             Explore OrbitX
           </a>
