@@ -2,12 +2,14 @@ import React from 'react';
 import Spline from '@splinetool/react-spline';
 import { Shield, Rocket, Brain } from 'lucide-react';
 
+const HERO_SPLINE_URL = import.meta.env.VITE_SPLINE_SCENE_URL || 'https://prod.spline.design/GAomjSvthYZG1LLN/scene.splinecode';
+
 const Hero = () => {
   return (
     <section id="top" className="relative h-[92vh] w-full overflow-hidden bg-black text-white">
       {/* Spline 3D scene (interactive) */}
       <div className="absolute inset-0">
-        <Spline scene="https://prod.spline.design/GAomjSvthYZG1LLN/scene.splinecode" style={{ width: '100%', height: '100%' }} />
+        <Spline scene={HERO_SPLINE_URL} style={{ width: '100%', height: '100%' }} />
       </div>
 
       {/* Non-blocking soft vignette only (no particle overlay) */}
