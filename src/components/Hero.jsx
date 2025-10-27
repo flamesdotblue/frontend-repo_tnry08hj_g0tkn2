@@ -1,18 +1,24 @@
 import React from 'react';
 import Spline from '@splinetool/react-spline';
 import { Rocket, Shield, Brain } from 'lucide-react';
+import InteractiveParticles from './InteractiveParticles';
 
 const Hero = () => {
   return (
-    <section className="relative h-[90vh] w-full overflow-hidden bg-black text-white">
+    <section className="relative h-[92vh] w-full overflow-hidden bg-black text-white">
+      {/* Spline 3D scene (interactive) */}
       <div className="absolute inset-0">
-        <Spline scene="https://prod.spline.design/yji5KWXyD-xKVkWj/scene.splinecode" style={{ width: '100%', height: '100%' }} />
+        <Spline scene="https://prod.spline.design/GAomjSvthYZG1LLN/scene.splinecode" style={{ width: '100%', height: '100%' }} />
       </div>
 
-      {/* Gradient and vignette overlays */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/70 via-emerald-900/10 to-black" />
-      <div className="pointer-events-none absolute inset-0" style={{ boxShadow: 'inset 0 0 220px rgba(0,0,0,0.65)' }} />
+      {/* Particle overlay that follows cursor (non-blocking) */}
+      <InteractiveParticles />
 
+      {/* Gradient and vignette overlays (non-blocking) */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/70 via-[#39FF14]/5 to-black" />
+      <div className="pointer-events-none absolute inset-0" style={{ boxShadow: 'inset 0 0 240px rgba(0,0,0,0.65)' }} />
+
+      {/* Content */}
       <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-center justify-center px-6 text-center">
         <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur">
           <Shield className="h-4 w-4 text-[#39FF14]" />
