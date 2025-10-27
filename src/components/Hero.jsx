@@ -1,22 +1,60 @@
 import React from 'react';
-import Spline from '@splinetool/react-spline';
 import { Shield, Rocket, Brain } from 'lucide-react';
+import InteractiveParticles from './InteractiveParticles';
 
-// Configurable URL with fallback to the new dark-themed Spline scene
-const HERO_SPLINE_URL = import.meta.env.VITE_SPLINE_SCENE_URL || 'https://prod.spline.design/Y7DK6OtMHusdC345/scene.splinecode';
-
+// Pure CSS/canvas hero (no Spline). Neon, dark, with a faux-3D rotating ring.
 const Hero = () => {
   return (
     <section id="top" className="relative h-[92vh] w-full overflow-hidden bg-black text-white">
-      {/* Spline 3D scene (interactive) */}
-      <div className="absolute inset-0">
-        <Spline scene={HERO_SPLINE_URL} style={{ width: '100%', height: '100%' }} />
-      </div>
+      {/* Background accents */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage:
+            `radial-gradient(60% 40% at 50% -10%, rgba(168,85,247,0.12), transparent 60%),
+             radial-gradient(50% 30% at 90% 100%, rgba(57,255,20,0.08), transparent 60%)`,
+          backgroundSize: '100% 100%',
+          backgroundPosition: 'center',
+        }}
+      />
+      <div className="pointer-events-none absolute inset-0" style={{ boxShadow: 'inset 0 0 240px rgba(0,0,0,0.75)' }} />
 
-      {/* Non-blocking vignette and subtle purple tint for depth (does not block interactions) */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/90" />
-      <div className="pointer-events-none absolute inset-0" style={{ boxShadow: 'inset 0 0 220px rgba(0,0,0,0.65)' }} />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_40%_at_50%_10%,rgba(168,85,247,0.08),transparent)]" />
+      {/* Interactive neon particles (canvas) */}
+      <InteractiveParticles count={140} color="#39FF14" />
+
+      {/* Faux-3D centerpiece */}
+      <div className="absolute left-1/2 top-1/2 z-[1] -translate-x-1/2 -translate-y-1/2">
+        <div className="relative h-[460px] w-[460px] sm:h-[520px] sm:w-[520px]" style={{ perspective: '1200px' }}>
+          {/* Rotating neon ring */}
+          <div
+            className="absolute inset-0 m-auto h-[65%] w-[65%] rounded-full"
+            style={{
+              transformStyle: 'preserve-3d',
+              transform: 'rotateX(65deg) rotateZ(0deg)',
+              animation: 'spin 18s linear infinite',
+              border: '3px solid transparent',
+              background: 'conic-gradient(from 0deg, rgba(168,85,247,0.0), rgba(168,85,247,0.6), rgba(57,255,20,0.7), rgba(168,85,247,0.6), rgba(168,85,247,0.0))',
+              filter: 'drop-shadow(0 0 24px rgba(57,255,20,0.35))',
+              maskComposite: 'intersect'
+            }}
+          />
+          {/* Glowing core */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="h-48 w-48 rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(57,255,20,0.45),rgba(57,255,20,0.1)_40%,transparent_70%)] blur-[2px]" />
+          </div>
+          {/* Subtle grid plane */}
+          <div
+            className="absolute inset-0"
+            style={{
+              transform: 'rotateX(70deg)',
+              backgroundImage: 'linear-gradient(rgba(57,255,20,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(57,255,20,0.08) 1px, transparent 1px)',
+              backgroundSize: '36px 36px',
+              backgroundPosition: 'center',
+              opacity: 0.25,
+            }}
+          />
+        </div>
+      </div>
 
       {/* Content */}
       <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-center justify-center px-6 text-center">
@@ -33,7 +71,7 @@ const Hero = () => {
         </p>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          <a href="#features" className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text:black shadow-[0_10px_30px_rgba(57,255,20,0.35)] transition hover:brightness-110" style={{ backgroundColor: '#39FF14', color: '#000' }}>
+          <a href="#features" className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-black shadow-[0_10px_30px_rgba(57,255,20,0.35)] transition hover:brightness-110" style={{ backgroundColor: '#39FF14' }}>
             <Rocket className="h-4 w-4" />
             Explore OrbitX
           </a>
@@ -43,6 +81,11 @@ const Hero = () => {
           </a>
         </div>
       </div>
+
+      {/* Keyframes for spin */}
+      <style>{`
+        @keyframes spin { from { transform: rotateX(65deg) rotateZ(0deg); } to { transform: rotateX(65deg) rotateZ(360deg); } }
+      `}</style>
     </section>
   );
 };
